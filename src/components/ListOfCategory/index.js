@@ -1,18 +1,27 @@
 import React, { useState, useEffect } from 'react'
 import { Category } from '../Category'
 import { List, Item } from './styles'
+import NProgress from 'nprogress'
 
-export const ListOfCategory = () => {
+const useCategoriesData = () => {
   const [categories, setCategories] = useState([])
-  const [showFixed, setShowFixed] = useState(false)
 
   useEffect(() => {
+    NProgress.start()
     window.fetch('https://petgram-server-peter.nycgia.vercel.app/categories')
       .then(res => res.json())
       .then(response => {
         setCategories(response)
+        NProgress.done()
       })
   }, [])
+
+  return { categories }
+}
+
+export const ListOfCategory = () => {
+  const {categories} = useCategoriesData()
+  const [showFixed, setShowFixed] = useState(false)
 
   useEffect(() => {
     const onScroll = e => {
