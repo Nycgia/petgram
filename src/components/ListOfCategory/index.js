@@ -20,7 +20,7 @@ const useCategoriesData = () => {
 }
 
 export const ListOfCategory = () => {
-  const {categories} = useCategoriesData()
+  const { categories } = useCategoriesData()
   const [showFixed, setShowFixed] = useState(false)
 
   useEffect(() => {
