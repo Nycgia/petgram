@@ -1,23 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Category } from '../Category'
 import { List, Item } from './styles'
-import NProgress from 'nprogress'
-
-const useCategoriesData = () => {
-  const [categories, setCategories] = useState([])
-
-  useEffect(() => {
-    NProgress.start()
-    window.fetch('https://petgram-server-peter.nycgia.vercel.app/categories')
-      .then(res => res.json())
-      .then(response => {
-        setCategories(response)
-        NProgress.done()
-      })
-  }, [])
-
-  return { categories }
-}
+import { useCategoriesData } from '../../hooks/useCategoriesData'
 
 export const ListOfCategory = () => {
   const { categories } = useCategoriesData()
