@@ -28,9 +28,18 @@ export const Button = styled.button`
   &:hover {
     background: #6a02bd;
   }
+
+  &[disabled] {
+    opacity: .3;
+  }
 `
 export const Title = styled.h2`
   font-size: 16px;
   font-weight: 500;
   padding: 8px 0;
+`
+
+export const ErrorMsg = styled.span`
+  color: red;
+  font-size: 14px;
 `
