@@ -6,7 +6,7 @@ import { Router, Redirect } from '@reach/router'
 import { Context } from './Context'
 
 const Home = React.lazy(() => import('./pages/Home'))
-const Favs = React.lazy(() => import('./pages/Favs'))
+const Favorites = React.lazy(() => import('./pages/Favorites'))
 const User = React.lazy(() => import('./pages/User'))
 const Detail = React.lazy(() => import('./pages/Detail'))
 const NotFound = React.lazy(() => import('./pages/NotFound'))
@@ -25,10 +25,10 @@ const App = () => {
         <Home path='/pet/:id' />
         <Detail path='/detail/:detailId' />
         {!isAuth && <NotRegisteredUser path='/login' />}
-        {!isAuth && <Redirect from='/favs' to='/login' noThrow />}
+        {!isAuth && <Redirect from='/Favorites' to='/login' noThrow />}
         {!isAuth && <Redirect from='/user' to='/login' noThrow />}
         {isAuth && <Redirect from='/login' to='/' noThrow />}
-        <Favs path='/favs' />
+        <Favorites path='/Favorites' />
         <User path='/user' />
       </Router>
       <NavBar />
